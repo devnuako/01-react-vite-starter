@@ -13,6 +13,12 @@ import reactLogo from './assets/react.svg';
 
 // function App() {
 const App = () => {
+  const myname = "Arsenal from parent";
+  const age = 25;
+  const data = {
+    address: "hanoi",
+    country: "vietnam"
+  }
 
 
   return (
@@ -20,7 +26,11 @@ const App = () => {
       <div className="todo-container">
         <div className="todo-title">Todo List</div>
         <TodoNew />
-        <TodoData />
+        <TodoData
+          name={myname}
+          age={age}
+          data={data}
+        />
         <div className='todo-image'>
           <img src={reactLogo} className='logo' />
         </div>
