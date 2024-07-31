@@ -2,8 +2,12 @@ const TodoData = (props) => {
     //destructuring object
     // const { name, age, data } = props;
 
-    const { todoList } = props;
+    const { todoList, deleteTodo } = props;
     // console.log(">>> check props: ", todoList)
+
+    const handleClick = (id) => {
+        deleteTodo(id)
+    }
 
 
     return (
@@ -13,7 +17,10 @@ const TodoData = (props) => {
                 return (
                     <div className={`todo-item`} key={item.id}>
                         <div> {item.name}</div>
-                        <button>Delete</button>
+                        <button
+                            onClick={() => handleClick(item.id)}
+                            style={{ cursor: "pointer" }}>Delete
+                        </button>
                     </div>
                 )
             })}
