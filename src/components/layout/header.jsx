@@ -1,14 +1,9 @@
-// import { Link } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
-// import './header.css';
-
 import { Menu } from 'antd';
-import { UsergroupAddOutlined, HomeOutlined, AuditOutlined } from '@ant-design/icons';
+import { UsergroupAddOutlined, HomeOutlined, AuditOutlined, SettingOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 
-
 const Header = () => {
-    //anchor
     const [current, setCurrent] = useState('');
     const onClick = (e) => {
         console.log('click ', e);
@@ -30,28 +25,33 @@ const Header = () => {
             label: <Link to={"/books"}>Books</Link>,
             key: 'books',
             icon: <AuditOutlined />,
+        },
 
+        {
+            label: 'Cài đặt',
+            key: 'setting',
+            icon: <SettingOutlined />,
+            children: [
+                {
+                    label: <Link to={"/login"}>Đăng nhập</Link>,
+                    key: 'login',
+                },
+                {
+                    label: 'Đăng xuất',
+                    key: 'logout',
+                },
+            ],
         },
 
     ];
-    
+
     return (
-        <ul>
-            {/* <li><a className="active" href="/">Home</a></li>
-            <li><a href="/users">Users</a></li>
-            <li><a href="/products">Products</a></li> */}
-            
-            {/* <li><Link class="active" to="/">Home</Link></li>
-            <li><Link to="/users">Users</Link></li>
-            <li><Link to="/products">Products</Link></li> */}
-            
-            <Menu
-                onClick={onClick}
-                selectedKeys={[current]}
-                mode="horizontal"
-                items={items}
-            />
-        </ul>
+        <Menu
+            onClick={onClick}
+            selectedKeys={[current]}
+            mode="horizontal"
+            items={items}
+        />
     )
 }
 
