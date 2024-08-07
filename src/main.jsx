@@ -4,6 +4,7 @@ import App from './App.jsx'
 // import './index.css'
 
 import { AuthWrapper } from './components/context/auth.context.jsx';
+import PrivateRoute from './pages/private.route.jsx';
 
 
 import {
@@ -38,7 +39,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/books",
-        element: <BookPage />
+        element: (
+          <PrivateRoute>
+            <BookPage />
+          </PrivateRoute>
+        )
+
       }
     ]
   },
