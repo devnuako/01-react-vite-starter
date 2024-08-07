@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 // import './index.css'
 
+import { AuthWrapper } from './components/context/auth.context.jsx';
+
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -54,6 +57,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
   //   <RouterProvider router={router} />
   // </React.StrictMode>,
-  <RouterProvider router={router} />
+  
+  // <RouterProvider router={router} />
+
+  <AuthWrapper>
+    <RouterProvider router={router} />
+  </AuthWrapper>
 
 )
